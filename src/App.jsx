@@ -24,16 +24,18 @@ const App = () => {
   const pokemonList = getPokemonGen(pokeDexData, currentGen)
 
   return (
-    <div className='container'>
-      <div className='dashboard'>
-        <DashBoard />
+    <>
+      <div className={`container ${gameState === 'selectGen' ? 'container--blurred' : ''}`}>
+        <div className='dashboard'>
+          <DashBoard />
+        </div>
+        <PokemonList
+          gameState={gameState} 
+          list={pokemonList} 
+        />
       </div>
-      <PokemonList
-        gameState={gameState} 
-        list={pokemonList} 
-      />
       {gameState === 'selectGen' && <SelectGenModal gameState={gameState} /> }
-    </div>
+    </>
   )
 }
 
