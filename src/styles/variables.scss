@@ -1,0 +1,137 @@
+
+
+// Colours
+
+$theme: experimental;
+
+$black: #212121;
+$white: white;
+
+$primary: #78c2e4;
+$primary-dark: #173b6e;
+$primary-light: #a8e2fd;
+
+$secondary: #4ce24c;
+$secondary-dark: #02bd3a;
+$secondary-light: lightgreen;
+
+$background-primary: #0a192f;
+$background-secondary: #050c17;
+
+$ink-main-primary: #78c2e4;
+$ink-main-secondary: white;
+$ink-main-tertiary: #a8e2fd;
+$ink-main-grey: grey;
+
+$ink-alt-primary: #212121;
+$ink-alt-secondary: #0a192f;
+$ink-alt-tertiary: #0a192f;
+$ink-alt-grey: grey;
+
+@if $theme == blue {
+  $primary: #498ac7;
+  $primary-dark: #173b6e;
+  $primary-light: #b6f4fc;
+
+  $secondary: #4ce24c;
+  $secondary-dark: #02bd3a;
+  $secondary-light: lightgreen;
+
+  $background-primary: #0a192f;
+  $background-secondary: #050c17;
+
+  $ink-main-primary: #78c2e4;
+  $ink-main-secondary: white;
+  $ink-main-tertiary: #a8e2fd;
+  $ink-main-grey: grey;
+
+  $ink-alt-primary: #212121;
+  $ink-alt-secondary: #0a192f;
+  $ink-alt-tertiary: #0a192f;
+  $ink-alt-grey: grey;
+}
+
+@if $theme == yellow {
+  $primary: #498ac7;
+  $primary-dark: #F4AA01;
+  $primary-light: #eb8c1f;
+
+  $secondary: #9e02bf;
+  $secondary-dark: white;
+  $secondary-light: white;
+
+  $background-primary: #f4aa01;
+  $background-secondary: #050c17;
+
+  $ink-main-primary: $black;
+  $ink-main-secondary: $black;
+  $ink-main-tertiary: $black;
+  $ink-main-grey: #494849;
+
+  $ink-alt-primary: #212121;
+  $ink-alt-secondary: #0a192f;
+  $ink-alt-tertiary: #0a192f;
+  $ink-alt-grey: grey;
+}
+
+@if $theme == experimental {
+  $primary: #f14e4e;
+  $primary-dark: $primary;
+  $primary-light: #eb8c1f;
+  $white: #e9f1ef;
+  $black: #1a1a1a;
+  
+  $secondary: #9e02bf;
+  $secondary-dark: $white;
+  $secondary-light: $white;
+
+  $background-primary: #323239;
+  $background-secondary: #050c17;
+
+  $ink-main-primary: white;
+  $ink-main-secondary: #ada4a4;
+  $ink-main-tertiary: $primary;
+  $ink-main-grey: grey;
+
+  $ink-alt-primary: #212121;
+  $ink-alt-secondary: #0a192f;
+  $ink-alt-tertiary: #0a192f;
+  $ink-alt-grey: grey;
+}
+
+$gray-50: #FAFAFA;
+$gray-100: #F5F5F5;
+$gray-200: #EEEEEE;
+$gray-300: #E0E0E0;
+$gray-400: #BDBDBD;
+$gray-500: #9E9E9E;
+$gray-600: #757575; 
+
+
+$white-secondary: #e6e8ea;
+
+// Spacing Variables
+$spacing-base: 4px;
+$spacing-01: 8px;
+$spacing-02: 16px;
+$spacing-03: 24px;
+$spacing-04: 32px;
+$spacing-05: 64px;
+$spacing-06: 72px;
+$spacing-07: 128px;
+$spacing-08: 256px;
+
+$grid-columns: 12;
+
+$border-radius: 12px;
+
+// Media query Break Points
+
+$mobile-breakpoint: 480px;
+
+$tablet-breakpoint: 768px;
+
+$laptop-breakpoint: 1024px;
+
+$screen-breakpoint: 1200px;
+

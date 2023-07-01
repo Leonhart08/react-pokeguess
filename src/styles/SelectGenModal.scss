@@ -1,0 +1,45 @@
+
+
+.select-gen-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1A1A1A;
+  
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.select-gen-modal__wrapper {
+  padding: 32px;
+  max-width: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.select-gen-modal__title {
+  font-size: 32px;
+
+}
+
+.select-gen-modal__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:  auto;
+  gap: 12px 12px;
+  padding: 16px 0;
+}
+
+.select-gen-modal__button {
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($color: #1A1A1A, $amount: 5) ;
+  }
+}

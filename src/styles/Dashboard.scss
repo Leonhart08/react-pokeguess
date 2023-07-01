@@ -1,0 +1,19 @@
+.dashboard__container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 250px;
+  padding: 16px;
+  margin-right: 32px;
+}
+
+.dashboard__button-section {
+  display: flex;
+  flex-direction: column;
+
+  & > button {
+    margin: 4px;
+  }
+}
