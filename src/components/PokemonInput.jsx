@@ -7,7 +7,7 @@ import POKEMON_TYPES from './../data/types.json'
 
 export const PokemonInput = React.forwardRef((props, ref) => {
   const { index, pokemon, handleOnGuess } = props
-  const { id: pokemonId, type } = pokemon
+  const { id: pokemonId, type: typeArray } = pokemon
 
   const { state, dispatch } = useContext(StateContext);
 
@@ -27,6 +27,16 @@ export const PokemonInput = React.forwardRef((props, ref) => {
     }
   },[currentInput])
 
+
+  const getInputTypeBackground = () => {
+    console.log(typeArray.length)
+    if(typeArray.length === 1){
+      return { backgroundImage: `linear-gradient(135deg, ${POKEMON_TYPES[typeArray[0].toLowerCase()]} 50%, ${POKEMON_TYPES[typeArray[0].toLowerCase()]} 50%)`}
+    }
+    if(typeArray.length === 2){
+      return { backgroundImage: `linear-gradient(135deg,${POKEMON_TYPES[typeArray[0].toLowerCase()]} 50%, ${POKEMON_TYPES[typeArray[1].toLowerCase()]} 50%)`}
+    }
+  }
 
   return (
     <div className='pokemon-list__element'>
@@ -53,7 +63,7 @@ export const PokemonInput = React.forwardRef((props, ref) => {
             value={currentInput}
             disabled={gameState !== 'playing'}
             onChange={(event) => setCurrentInput(event.target.value)}
-            style={{'backgroundColor': POKEMON_TYPES[type[0].toLowerCase()]}} 
+            style={getInputTypeBackground()} 
           />
         )}
         {
