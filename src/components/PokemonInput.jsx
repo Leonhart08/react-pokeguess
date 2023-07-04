@@ -3,6 +3,8 @@ import StateContext from './../context'
 
 import { FaRegQuestionCircle } from 'react-icons/fa'
 
+import POKEMON_TYPES from './../data/types.json'
+
 export const PokemonInput = React.forwardRef((props, ref) => {
   const { index, pokemon, handleOnGuess } = props
   const { id: pokemonId, type } = pokemon
@@ -25,13 +27,14 @@ export const PokemonInput = React.forwardRef((props, ref) => {
     }
   },[currentInput])
 
+
   return (
     <div className='pokemon-list__element'>
-      <div className='pokemon-list__element-number'> 
+      <div className={`pokemon-list__element-number ${!guessed && gameState === 'gameFinished' && 'pokemon-list__element-number--disabled'}`}> 
         {`# ${zeroPad(pokemonId,3)}`}  
       </div> 
-      { guessed ? (
-        <div className='pokemon-list__element-sprite'>  
+      { (guessed || gameState === 'gameFinished') ? (
+        <div className={`pokemon-list__element-sprite ${!guessed && gameState === 'gameFinished' && 'pokemon-list__element-sprite--disabled'}`}>  
           <img src={`sprites/${zeroPad(pokemonId,3)}MS.png`} />
         </div>
         ) :
@@ -39,8 +42,8 @@ export const PokemonInput = React.forwardRef((props, ref) => {
           <FaRegQuestionCircle />
         </div>
       }
-      <div className={`pokemon-list__element-input pokemon-list__element-input--${type[0].toLowerCase()}`}> 
-        {!guessed && (
+      <div className={`pokemon-list__element-input`}> 
+        {(!guessed && gameState === 'playing') && (
           <input
             id={`pokemon-input-${index}`}
             type="text" 
@@ -49,11 +52,16 @@ export const PokemonInput = React.forwardRef((props, ref) => {
             ref={ref}
             value={currentInput}
             disabled={gameState !== 'playing'}
-            onChange={(event) => setCurrentInput(event.target.value)} 
+            onChange={(event) => setCurrentInput(event.target.value)}
+            style={{'backgroundColor': POKEMON_TYPES[type[0].toLowerCase()]}} 
           />
         )}
         {
-          guessed && <div className={'pokemon-list__element-answer'}> {pokemonName} </div>
+          (guessed || gameState === 'gameFinished') 
+            && 
+            <div className={`pokemon-list__element-answer ${guessed && 'pokemon-list__element-answer--answered'}`}> 
+              {pokemonName} 
+            </div>
         }
       </div>
     </div>

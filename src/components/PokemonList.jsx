@@ -4,6 +4,7 @@ import StateContext from './../context'
 import { PokemonInput } from './PokemonInput';
 import { PokemonInputLoader } from './PokemonInputLoader'
 
+
 export const PokemonList = ({ list, gameState }) => {
   const inputRefs = useRef([])
 
@@ -67,6 +68,8 @@ export const PokemonList = ({ list, gameState }) => {
     }
 
     if(event === 'DOWN') {
+      if(index === (list.length - 1)) return
+
       if(guessedIndexes.includes(index + 1)){
         changeFocusInput(event, index + 1 )
       } else {
@@ -74,7 +77,6 @@ export const PokemonList = ({ list, gameState }) => {
       }
     }
   }
-
 
   return (
     <>
@@ -89,7 +91,7 @@ export const PokemonList = ({ list, gameState }) => {
               pokemon={element}
               ref={el => (inputRefs.current[index] = el)}
               handleKeyDown={handleKeyDown}
-              handleOnGuess={(event, index) => (index !== (list.length - 1)) && changeFocusInput(event, index)}
+              handleOnGuess={changeFocusInput}
             /> 
           </div>
         ))

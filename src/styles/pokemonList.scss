@@ -18,6 +18,11 @@
   font-weight: bold;
   white-space: nowrap;
 }
+
+.pokemon-list__element-number--disabled {
+  color: darken(#888, 20);
+}
+
 .pokemon-list__element {
   display: flex;
   flex-direction: row;
@@ -50,119 +55,21 @@
   width: 40px;
   height: 40px;
 }
+
+.pokemon-list__element-sprite--disabled {
+  opacity: 0.5;
+}
+
 .pokemon-list__element-answer {
+  width: 112px;
   text-transform: capitalize;
   letter-spacing: 1px;
   font-size: 14px;
+  color: darken(#888, 20);
 }
 
-.pokemon-list__element-input--fire {
-  input {
-    background-color: #EE8130;
-  }
-}
-
-.pokemon-list__element-input--grass {
-  input {
-    background-color: #7AC74C;
-  }
-}
-
-.pokemon-list__element-input--water {
-  input {
-    background-color: #6390F0;
-  }
-}
-
-.pokemon-list__element-input--poison{
-  input {
-    background-color: #A33EA1;
-  }
-}
-
-
-.pokemon-list__element-input--bug {
-  input {
-    background-color: #A6B91A;
-  }
-}
-
-.pokemon-list__element-input--normal {
-  input {
-    background-color: #A8A77A;
-  }
-}
-
-.pokemon-list__element-input--flying {
-  input {
-    background-color: #A98FF3;
-  }
-}
-
-.pokemon-list__element-input--electric {
-  input {
-    background-color: #F7D02C;
-  }
-}
-
-.pokemon-list__element-input--ground {
-  input {
-    background-color: #E2BF65;
-  }
-}
-
-.pokemon-list__element-input--rock {
-  input {
-    background-color: #B6A136;
-  }
-}
-
-.pokemon-list__element-input--fighting {
-  input {
-    background-color: #C22E28;
-  }
-}
-
-.pokemon-list__element-input--ghost {
-  input {
-    background-color: #735797;
-  }
-}
-
-.pokemon-list__element-input--ice {
-  input {
-    background-color: #96D9D6;
-  }
-}
-
-.pokemon-list__element-input--fairy {
-  input {
-    background-color: #D685AD;
-  }
-}
-
-.pokemon-list__element-input--steel {
-  input {
-    background-color: #B7B7CE;
-  }
-}
-
-.pokemon-list__element-input--dark {
-  input {
-    background-color: #705746;
-  }
-}
-
-.pokemon-list__element-input--dragon {
-  input {
-    background-color: #6F35FC;
-  }
-}
-
-.pokemon-list__element-input--psychic {
-  input {
-    background-color: #F95587;
-  }
+.pokemon-list__element-answer--answered {
+  color: white;
 }
 
 .pokemon-list__element-input--loading {
