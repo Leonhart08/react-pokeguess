@@ -36,7 +36,7 @@ export const Timer = () => {
       setCounting(false)
       Ref.current = null
 
-      dispatch({ type: 'FINISH_GAME' })
+      // dispatch({ type: 'FINISH_GAME' })
     } 
   }, [timer]);
 

@@ -54,10 +54,33 @@ body {
   justify-content: center;
   padding: 32px;
 
-  transition: filter 0.3s;
 }
 
 .container--blurred {
-  filter: blur(2px);
-  transition: filter 0.3s;
+  filter: blur(1px);
+}
+
+//ScrollBar
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darken(#888, 20);
+  border-radius: 5px;
+  background-clip: padding-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darken(#555, 5);
 }

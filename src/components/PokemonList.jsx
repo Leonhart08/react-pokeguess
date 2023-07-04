@@ -11,16 +11,48 @@ export const PokemonList = ({ list, gameState }) => {
 
   const { guessedIndexes } = state
 
+  const checkOutOfRange = (event, index) => {
+    if (event.key === 'ArrowUp') {
+      return index !== 0
+    }
+     
+    if (event.key === 'ArrowDown' || event.key === 'Enter') {
+      return index !== (list.length - 1)
+    } 
+
+    if (event.key === 'ArrowLeft') {
+      return index > 19
+    } 
+
+    if (event.key === 'ArrowRight') {
+      return index < list.length - 20
+    } 
+  }
+
   const handleKeyDown = (event, index) => {
+    const { selectionStart, selectionEnd, value } = event.target;
+
     if (event.key === 'ArrowUp') {
       event.preventDefault()
-      changeFocusInput("UP", index)
+      checkOutOfRange(event, index) && changeFocusInput("UP", index)
       return
     } 
 
     if (event.key === 'ArrowDown' || event.key === 'Enter') {
-      event.preventDefault();
-      changeFocusInput("DOWN", index)
+      event.preventDefault()
+      checkOutOfRange(event, index) && changeFocusInput("DOWN", index)
+      return
+    }
+
+    if (event.key === 'ArrowRight' && selectionEnd === value.length) {
+      event.preventDefault()
+      checkOutOfRange(event, index) &&changeFocusInput("DOWN", index + 19)
+      return
+    }
+
+    if (event.key === 'ArrowLeft' && selectionStart === value.length) {
+      event.preventDefault()
+      checkOutOfRange(event, index) && changeFocusInput("DOWN", index - 21)
       return
     }
   }
@@ -43,11 +75,12 @@ export const PokemonList = ({ list, gameState }) => {
     }
   }
 
+
   return (
     <>
       <div className='pokemon-list__container' >
         {(gameState === 'selectGen')
-         ? [...Array(151).keys()].map((element, index) => <PokemonInputLoader key={`pokemon-${index}-loader`} index={index}  /> )
+         ? [...Array(100).keys()].map((element, index) => <PokemonInputLoader key={`pokemon-${index}-loader`} index={index}  /> )
          : list.map((element, index) => (
           <div key={`pokemon-input-${index}`} onKeyDown={event => handleKeyDown(event, index)}>
             <PokemonInput 
@@ -56,7 +89,7 @@ export const PokemonList = ({ list, gameState }) => {
               pokemon={element}
               ref={el => (inputRefs.current[index] = el)}
               handleKeyDown={handleKeyDown}
-              handleOnGuess={changeFocusInput}
+              handleOnGuess={(event, index) => (index !== (list.length - 1)) && changeFocusInput(event, index)}
             /> 
           </div>
         ))
