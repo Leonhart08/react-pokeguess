@@ -15,6 +15,7 @@ export const Timer = () => {
   useEffect(() => {
     if(gameState === 'playing') {
       setCounting(true)
+      
       setTimer(60)
 
       const id = setInterval(() => {

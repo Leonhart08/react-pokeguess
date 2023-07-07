@@ -14,6 +14,7 @@ export const PokemonInput = React.forwardRef((props, ref) => {
   const { gameState } = state
   const [currentInput, setCurrentInput] = useState('')
   const [guessed, setGuessed] = useState(false)
+  const [highlight, setHighlight] = useState(false)
 
   const zeroPad = (num, places) => String(num).padStart(places, '0')
 
@@ -23,18 +24,19 @@ export const PokemonInput = React.forwardRef((props, ref) => {
     if(currentInput.toLowerCase() === pokemonName) {
       dispatch({ type: 'SET_CORRECT_POKEMON_ANSWER', guessedIndex: index });
       setGuessed(true)
+      setHighlight(true)
+      setTimeout(() => setHighlight(false), 200)
       handleOnGuess('DOWN', index)
     }
   },[currentInput])
 
 
   const getInputTypeBackground = () => {
-    console.log(typeArray.length)
     if(typeArray.length === 1){
       return { backgroundImage: `linear-gradient(135deg, ${POKEMON_TYPES[typeArray[0].toLowerCase()]} 50%, ${POKEMON_TYPES[typeArray[0].toLowerCase()]} 50%)`}
     }
     if(typeArray.length === 2){
-      return { backgroundImage: `linear-gradient(135deg,${POKEMON_TYPES[typeArray[0].toLowerCase()]} 50%, ${POKEMON_TYPES[typeArray[1].toLowerCase()]} 50%)`}
+      return { backgroundImage: `linear-gradient(135deg,${POKEMON_TYPES[typeArray[0].toLowerCase()]} 30%, ${POKEMON_TYPES[typeArray[1].toLowerCase()]} 70%)`}
     }
   }
 
@@ -69,7 +71,12 @@ export const PokemonInput = React.forwardRef((props, ref) => {
         {
           (guessed || gameState === 'gameFinished') 
             && 
-            <div className={`pokemon-list__element-answer ${guessed && 'pokemon-list__element-answer--answered'}`}> 
+            <div className={`
+              pokemon-list__element-answer 
+              ${guessed && 'pokemon-list__element-answer--answered'} 
+              ${guessed && `${highlight ? 'pokemon-list__element-answer--highlight' : 'pokemon-list__element-answer--normal'}`}
+            `}
+            > 
               {pokemonName} 
             </div>
         }

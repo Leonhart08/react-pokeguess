@@ -9,6 +9,51 @@
   margin-right: 32px;
 }
 
+.dashboard__score-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  padding: 8px 0;
+  width: 100%;
+  border: 1px solid white;
+  background-color: #1A1A1A;
+  border-radius: 6px;
+  color: white;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.dashboard__score-title {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.dashboard__score-number {
+  display: flex;
+  font-size: 24px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
+
+.dashboard__score-number--normal {
+  & > div > span {
+    transition: color 0.35s;
+    color: white;
+  }
+}
+
+.dashboard__score-number--highlight {
+  & > div > span {
+    color: lightgreen;
+  }
+}
+
 .dashboard__button-section {
   display: flex;
   flex-direction: column;

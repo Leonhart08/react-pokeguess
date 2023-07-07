@@ -68,8 +68,16 @@
   color: darken(#888, 20);
 }
 
-.pokemon-list__element-answer--answered {
+.pokemon-list__element-answer--normal {
+  transition: color 0.35s;
   color: white;
+}
+.pokemon-list__element-answer--highlight {
+  color: lightgreen;
+}
+
+.pokemon-list__element-answer--answered {
+  //color: white;
 }
 
 .pokemon-list__element-input--loading {
