@@ -2,24 +2,34 @@
   background-color: $primary;
   color: $white-secondary;
   border-width: 0;
-  border: 1px solid $secondary-light;
+  border: 2px solid $secondary-light;
   color: $secondary-light;
-  font-family: monospace;
-  // padding: $spacing-01 $spacing-02;
   border-radius: 5px;
   font-size: 16px;
+  letter-spacing: 2px;
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(171, 255, 46, 0.25);
+    background-color: darken($primary, 5);
   }
 }
 
 .button--medium {
-  padding: $spacing-01 $spacing-02;
+  padding: 5px $spacing-03;
 }
 
 .button--large {
-  padding: $spacing-01 $spacing-03;
+  padding: $spacing-01 $spacing-01;
   font-size: 20px;
+}
+
+.button--disabled {
+  background-color: #1A1A1A;
+  color: darken($color: grey, $amount: 10);
+
+  cursor: default;
+
+  &:hover {
+    background-color: #1A1A1A;
+  }
 }

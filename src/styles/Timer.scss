@@ -6,12 +6,23 @@
   align-items: center;
   margin: 32px 0;
   padding: 8px 0;
-  font-size: 32px;
-  font-family: monospace;
-  letter-spacing: 2px;
-  font-weight: 300;
+  
   background-color: #1A1A1A;
   border: 1px solid white;
   border-radius: 6px;
   width: 100%;
+}
+
+.timer__title {
+  font-weight: 300;
+  font-size: 16px;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.timer__countdown {
+  font-weight: 300;
+  font-size: 24px;
+  font-family: monospace;
+  letter-spacing: 2px;
 }

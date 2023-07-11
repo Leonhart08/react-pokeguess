@@ -1,11 +1,14 @@
 
 const initialState = {
   gameState: 'selectGen',
-  currentGen: null,
+  configuration: {
+    currentGen: null,
+    range: null,
+    currentTime: {} 
+  },
   total: null,
   answers: 0,
   guessedIndexes: [],
-  range: null,
 };
 
 const reducer = (state, action) => {
@@ -14,10 +17,26 @@ const reducer = (state, action) => {
       const { gen, range } = action 
       const { firstIndex, lastIndex } = range
 
-      return { ...state, currentGen: gen, gameState: 'playing', range, total: lastIndex - firstIndex };
+      return { 
+        ...state,
+        configuration: {
+          ...state.configuration,
+          currentGen: gen, 
+          range  
+        },
+        total: lastIndex - firstIndex
+      }
     }
-    case 'CHANGE_GAME_STATE':
-      return { ...state };
+    case 'SELECT_TIME': {
+      const { time } = action 
+
+      return { 
+        ...state,
+        configuration: { ...state.configuration, currentTime: time }
+      }
+    }
+    case 'START_GAME':
+      return { ...state, gameState: 'playing' };
     case 'RESET_GAME':
       return { ...initialState };
     case 'FINISH_GAME': {

@@ -4,14 +4,14 @@ export const Button = (props) => {
   const { text, type, size, handleClick, isDisabled } = props
 
   return (
-    <button
+    <div
       type="button"  
-      onClick={handleClick}
+      onClick={!isDisabled ? handleClick : () => {}}
       disabled={isDisabled} 
-      className={`button button--${type} button--${size}`}
+      className={`button button--${type} button--${size} ${isDisabled ? 'button--disabled' : ''}`}
     > 
       { text } 
-    </button>
+    </div>
   )
 }
 

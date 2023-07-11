@@ -8,7 +8,9 @@ import { Timer } from './Timer'
 export const DashBoard = (props) => {
   const { state, dispatch } = useContext(StateContext);
   
-  const { gameState, currentGen, answers, total } = state
+  const { gameState, configuration, answers, total } = state
+
+  const { currentGen } = configuration
 
   const [highlight, setHighlight] = useState(false)
 
@@ -25,14 +27,14 @@ export const DashBoard = (props) => {
         <h1> Pokedex Quiz </h1>
       </div>
       <div>
-        <span> {`Generation #${currentGen}`} </span>
+        <span> {`Generation # ${currentGen}`} </span>
       </div>
       <div className='dashboard__score-container'>
         <div className='dashboard__score-title'> 
           SCORE
         </div>
         <div className={`dashboard__score-number ${highlight ? 'dashboard__score-number--highlight' : 'dashboard__score-number--normal'}`}>
-          <div> <span> {answers} </span> / {total} </div>
+          {total && (<div> <span> {answers} </span> / {total} </div>)}
         </div> 
       </div>
       <Timer />

@@ -5,7 +5,7 @@ import reducer from './reducer';
 
 const initialState = {
   gameState: 'selectGen',
-  currentGen: null,
+  configuration: { currentGen: null, currentTime: {}, range: null },
   total: null,
   answers: 0,
   guessedIndexes: []

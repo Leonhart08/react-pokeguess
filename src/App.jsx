@@ -10,9 +10,10 @@ import pokeDexData from './data/pokedex.json'
 const App = () => {
   const { state, dispatch } = useContext(StateContext);
   
-  const { currentGen, gameState, range } = state
-  
-  
+  const { gameState, configuration } = state
+
+  const { range, currentGen, time } = configuration
+  console.log('configuration', configuration)
   const getPokemonGen = (pokedex, currentGen) => {
     if(!currentGen) return []
 
